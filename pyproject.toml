@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shopman-guestman"
+version = "0.1.0"
+description = "Shopman Guestman — Customer Management"
+requires-python = ">=3.12"
+dependencies = [
+    "Django>=5.2,<6.0",
+    "shopman-utils>=0.3.0",
+]
+
+[project.optional-dependencies]
+api = [
+    "djangorestframework>=3.14",
+    "django-filter>=23.0",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-django>=4.5",
+    "djangorestframework>=3.14",
+    "django-filter>=23.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["shopman.guestman*"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "guestman_test_settings"
+pythonpath = ["."]
